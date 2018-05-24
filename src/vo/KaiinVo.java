@@ -35,6 +35,8 @@ public class KaiinVo implements Serializable{
 	 */
 	private Date registdate;
 
+	private String sex;
+
 	/**
 	* Constractor
 	*/
@@ -62,6 +64,14 @@ public class KaiinVo implements Serializable{
 
 	public void setRegistdate(Date registdate) { this.registdate = registdate; }
 
+
+	public String getSex() {
+		return sex;
+	}
+
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
 
 	public String toString(){
 		StringBuffer buffer = new StringBuffer();

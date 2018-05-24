@@ -2,11 +2,14 @@ package bean;
 
 import java.time.LocalDate;
 
+import domain.SexEnum;
+
 public class SearchBean {
 	private String massage;
 	private int kaiinno;
 	private String name;
 	private LocalDate registdate;
+	private SexEnum sex;
 	private boolean isExist;
 
 	public SearchBean(){}
@@ -41,6 +44,14 @@ public class SearchBean {
 
 	public void setRegistdate(LocalDate registdate) {
 		this.registdate = registdate;
+	}
+
+	public SexEnum getSex() {
+		return sex;
+	}
+
+	public void setSex(SexEnum sex) {
+		this.sex = sex;
 	}
 
 	public boolean isExist() {

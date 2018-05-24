@@ -18,6 +18,7 @@
 	ID：<%=bean.getKaiinno() %> <br>
 	会員名：<%=bean.getName() %> <br>
 	登録日時：<%=bean.getRegistdate().toString() %> <br>
+	性別： <%= bean.getSex().getDispname() %>
  <%}%>
 
 </body>

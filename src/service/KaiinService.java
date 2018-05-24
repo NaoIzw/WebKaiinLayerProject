@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import bean.SearchBean;
 import dao.Dao;
 import dao.KaiinMgr;
+import domain.SexEnum;
 import vo.KaiinVo;
 
 public class KaiinService {
@@ -35,6 +36,7 @@ public class KaiinService {
 			sb.setKaiinno(kv.getKaiinno());
 			sb.setName(kv.getName());
 			sb.setRegistdate(kv.getRegistdate().toLocalDate());
+			sb.setSex(SexEnum.valueOf(kv.getSex()));
 
 		} catch (ClassNotFoundException | SQLException e) {
 			throw new RuntimeException(e);
