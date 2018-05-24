@@ -46,8 +46,11 @@ public class KaiinVo implements Serializable{
 	* Constractor
 	* @param <code>kaiinno</code>
 	*/
-	public KaiinVo(int kaiinno){
+	public KaiinVo(int kaiinno, String name, String sex){
 		this.kaiinno = kaiinno;
+		this.name = name;
+		this.registdate = java.sql.Date.valueOf(LocalDate.now());
+		this.sex = sex;
 	}
 
 	public int getKaiinno(){ return this.kaiinno; }

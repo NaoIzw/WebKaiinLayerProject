@@ -3,6 +3,7 @@ package service;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import bean.RegistBean;
 import bean.SearchBean;
 import dao.Dao;
 import dao.KaiinMgr;
@@ -10,6 +11,29 @@ import domain.SexEnum;
 import vo.KaiinVo;
 
 public class KaiinService {
+
+	public RegistBean registKaiin(int id, String name, String sex) {
+
+		RegistBean rb = null;
+
+		try(
+				Connection con = Dao.getConnection();
+		)
+		{
+			KaiinMgr km = new KaiinMgr(con);
+			rb = new RegistBean();
+
+			KaiinVo kv = new KaiinVo(id, name, sex);
+
+			km.putKaiin(kv);
+
+			rb.setMessage("登録が完了しました。");
+
+			return rb;
+		}catch (ClassNotFoundException | SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
 
 	public SearchBean searchKaiin(int id) {
 

@@ -9,20 +9,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import bean.SearchBean;
+import bean.RegistBean;
 import service.KaiinService;
 
 /**
  * Servlet implementation class IndexStartServlet
  */
-@WebServlet("/SearchServlet")
-public class SearchServlet extends HttpServlet {
+@WebServlet("/RegistServlet")
+public class RegistServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public SearchServlet() {
+	public RegistServlet() {
 		super();
 	}
 
@@ -39,20 +39,24 @@ public class SearchServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("SearchServletが実行されました。");
 
+
 		//画面から入力したデータを取得する
 		String idstr = request.getParameter("id");
+		String namestr = new String(request.getParameter("name").getBytes("iso-8859-1"),"UTF-8");
+		String sexstr = request.getParameter("sex");
 
 		int id = Integer.parseInt(idstr);
 
 		KaiinService ks = new KaiinService();
 
-		SearchBean sb = ks.searchKaiin(id);
+		RegistBean rb = ks.registKaiin(id, namestr, sexstr);
 
-		request.setAttribute("bean", sb);
+		request.setAttribute("bean", rb);
 
-		RequestDispatcher disp = request.getRequestDispatcher("/search.jsp");
+		RequestDispatcher disp = request.getRequestDispatcher("/regist.jsp");
 		disp.forward(request, response);
-
 	}
+
+
 
 }

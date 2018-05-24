@@ -6,14 +6,31 @@
 <body>
  ようこそJavaWebの世界へ
 
-<form  method="POST" action="SearchServlet">
-IDを入力してください。<br>
+<form  method="POST" action="RegistServlet">
+登録情報を入力してください。<br>
 <br>
-	ログインID<input name="id" type="text" ><br>
+	ID:<input name="id" type="text" ><br>
+	会員名:<input name="name" type="text" ><br>
+	性別:
+<input type="radio" name="sex" value="MALE"> 男性
+<input type="radio" name="sex" value="FEMALE"> 女性 <br>
 
-	<input type="submit" value="次の世界へ">
+	<input type="submit" value="登録"> <br>
 </form>
 
+
+<form  method="POST" action="SearchServlet">
+	<input type="submit" value="表示"> <br>
+</form>
+
+
+<form  method="POST" action="SearchServlet">
+検索したいIDを入力してください。<br>
+<br>
+	ID:<input name="id" type="text" ><br>
+
+	<input type="submit" value="検索"> <br>
+</form>
 
 </body>
 </html>

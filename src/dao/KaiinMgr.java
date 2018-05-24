@@ -16,9 +16,10 @@ public class KaiinMgr extends Dao{
 			+ "  KaiinNo "
 			+ " ,Name "
 			+ " ,registDate "
+			+ " ,SEX "
 			+ " ) "
 			+ " values ( "
-			+ "  ?,?,? ) ";
+			+ "  ?,?,?,? ) ";
 
 	private static final String GET =
 			          "   select "
@@ -52,14 +53,13 @@ public class KaiinMgr extends Dao{
 
 			stmt = con.prepareStatement(PUT);
 
-			//stmt.setInt(1,e.getEmployeeid() );
 			stmt.setInt(1, kv.getKaiinno());
 			stmt.setString(2,kv.getName());
 			stmt.setDate(3, kv.getRegistdate());
+			stmt.setString(4, kv.getSex());
 
 
 			/* ｓｑｌ実行 */
-			//rset = stmt.executeQuery();
 			int numCount = stmt.executeUpdate();
 		}
 		catch (SQLException ex) {
@@ -127,8 +127,7 @@ public class KaiinMgr extends Dao{
 	}
 
 
-	public /**Collection<Kaiin>**/List<KaiinVo> values() throws SQLException {
-		//return kaiinDB.values();
+	public List<KaiinVo> values() throws SQLException {
 		PreparedStatement stmt = null;
 		ResultSet rset = null;
 		List<KaiinVo>  list = new ArrayList<KaiinVo> ();
