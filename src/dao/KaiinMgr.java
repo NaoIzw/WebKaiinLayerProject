@@ -63,11 +63,11 @@ public class KaiinMgr extends Dao{
 
 	//-------------------------------------------------------
 	// 会員取得
-	public kaiinVo getKaiin(int i) throws SQLException {
+	public KaiinVo getKaiin(int i) throws SQLException {
 
 	  PreparedStatement stmt = null;
 	  ResultSet rset = null;
-	  kaiinVo kv = new kaiinVo();
+	  KaiinVo kv = null;
 
 	  try{
 
@@ -91,7 +91,7 @@ public class KaiinMgr extends Dao{
 		/* 取得したデータを表示します。 */
 		while (rset.next())
 			{
-				//sm.setEmployeeid(		rset.getInt("EMPLOYEEID") );
+			    kv = new KaiinVo();
 				kv.setKaiinno(		 rset.getInt(1) );
 				kv.setName( 	     rset.getString(2));
 				kv.setRegistdate(    rset.getDate(3));
@@ -117,11 +117,11 @@ public class KaiinMgr extends Dao{
 	}
 
 
-	public /**Collection<Kaiin>**/List<kaiinVo> values() throws SQLException {
+	public /**Collection<Kaiin>**/List<KaiinVo> values() throws SQLException {
 		//return kaiinDB.values();
 		  PreparedStatement stmt = null;
 		  ResultSet rset = null;
-		  List<kaiinVo>  list = new ArrayList<kaiinVo> ();
+		  List<KaiinVo>  list = new ArrayList<KaiinVo> ();
 
 		  try{
 
@@ -141,7 +141,7 @@ public class KaiinMgr extends Dao{
 			/* 取得したデータを表示します。 */
 			while (rset.next())
 				{
-					kaiinVo kv = new kaiinVo();
+					KaiinVo kv = new KaiinVo();
 					kv.setKaiinno(		 rset.getInt(1) );
 					kv.setName( 	     rset.getString(2));
 					kv.setRegistdate(    rset.getDate(3));

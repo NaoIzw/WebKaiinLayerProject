@@ -1,20 +1,44 @@
 package service;
 
-import java.time.LocalDate;
+import java.sql.Connection;
+import java.sql.SQLException;
 
 import bean.SearchBean;
+import dao.Dao;
+import dao.KaiinMgr;
+import vo.KaiinVo;
 
 public class KaiinService {
 
 	public SearchBean searchKaiin(int id) {
-		// TODO 自動生成されたメソッド・スタブ
 
-		SearchBean sb = new SearchBean();
+		SearchBean sb = null;
 
-		sb.setKaiinno(2);
-		sb.setName("いざわ");
-		sb.setRegistdate(LocalDate.now());
+		try(
+			Connection con = Dao.getConnection();
+		)
+		{
+			KaiinMgr km = new KaiinMgr(con);
+			sb = new SearchBean();
 
+			KaiinVo kv = km.getKaiin(id);
+
+			if(kv == null) {
+				sb.setExist(false);
+				sb.setMassage("入力されたIDに該当する会員はいませんでした。");
+				return sb;
+			}
+
+			sb.setExist(true);
+			sb.setMassage("検索結果");
+
+			sb.setKaiinno(kv.getKaiinno());
+			sb.setName(kv.getName());
+			sb.setRegistdate(kv.getRegistdate().toLocalDate());
+
+		} catch (ClassNotFoundException | SQLException e) {
+			throw new RuntimeException(e);
+		}
 		return sb;
 	}
 

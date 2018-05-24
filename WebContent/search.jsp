@@ -10,11 +10,15 @@
 <title>BeanStartWebApp2</title>
 </head>
 <body>
- 検索結果<br>
 
-ID：<%=bean.getKaiinno() %> <br>
-会員名：<%=bean.getName() %> <br>
-登録日時：<%=bean.getRegistdate().toString() %> <br>
+ <%=bean.getMassage() %> <br>
+ <br>
+
+ <%if(bean.isExist()){ %>
+	ID：<%=bean.getKaiinno() %> <br>
+	会員名：<%=bean.getName() %> <br>
+	登録日時：<%=bean.getRegistdate().toString() %> <br>
+ <%}%>
 
 </body>
 </html>

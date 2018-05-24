@@ -50,7 +50,7 @@ public class KaiinVo implements Serializable{
 
 	public int getKaiinno(){ return this.kaiinno; }
 
-	public void setKaiinNo(int kaiinno){ this.kaiinno = kaiinno; }
+	public void setKaiinno(int kaiinno){ this.kaiinno = kaiinno; }
 
 	public String getName(){ return this.name; }
 
