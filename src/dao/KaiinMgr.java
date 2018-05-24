@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import vo.KaiinVo;
+
 public class KaiinMgr extends Dao{
 
     //static Map<Integer, Kaiin> kaiinDB = new HashMap<>();
@@ -17,7 +19,7 @@ public class KaiinMgr extends Dao{
 
 	//-------------------------------------------------------
 	// 会員登録
-	public void putKaiin(kaiinVo kv) throws SQLException {
+	public void putKaiin(KaiinVo kv) throws SQLException {
 		  PreparedStatement stmt = null;
 		  ResultSet rset = null;
 		  try{

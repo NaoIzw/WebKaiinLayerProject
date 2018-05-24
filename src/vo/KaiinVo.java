@@ -23,7 +23,7 @@ public class KaiinVo implements Serializable{
 	/**
 	 * kaiinNo:int(10) <Primary Key>
 	 */
-	private int kaiinNo;
+	private int kaiinno;
 
 	/**
 	 * Name:varchar(200)
@@ -44,13 +44,13 @@ public class KaiinVo implements Serializable{
 	* Constractor
 	* @param <code>kaiinno</code>
 	*/
-	public KaiinVo(int kaiinNo){
-		this.kaiinNo = kaiinNo;
+	public KaiinVo(int kaiinno){
+		this.kaiinno = kaiinno;
 	}
 
-	public int getKaiinNo(){ return this.kaiinNo; }
+	public int getKaiinno(){ return this.kaiinno; }
 
-	public void setKaiinNo(int kaiinNo){ this.kaiinNo = kaiinNo; }
+	public void setKaiinNo(int kaiinno){ this.kaiinno = kaiinno; }
 
 	public String getName(){ return this.name; }
 
@@ -67,7 +67,7 @@ public class KaiinVo implements Serializable{
 		StringBuffer buffer = new StringBuffer();
 		buffer.append("[KaiinVo:");
 		buffer.append(" kaiinno: ");
-		buffer.append(kaiinNo);
+		buffer.append(kaiinno);
 		buffer.append(" name: ");
 		buffer.append(name);
 		buffer.append(" registdate: ");
